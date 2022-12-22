@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="PinCodeEdit">
+        <item name="android:textColor">@color/blue_light</item>
+        <item name="hintTextColor">@color/grey_hint</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:hint">@string/enter_pin</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:paddingHorizontal">20dp</item>
+    </style>>
+    <style name="KeyBoardButton">
+        <item name="android:width">80dp</item>
+        <item name="height">50dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:textColor">@color/blue_light</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

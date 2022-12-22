@@ -4,15 +4,156 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
+
+    <TextView
+        android:id="@+id/pinCodeEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn2"
+        android:layout_marginBottom="30dp"
+        style="@style/PinCodeEdit"
+        android:textAlignment="center"
+        android:maxLength="4"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:id="@+id/btn5"
+        style="@style/KeyBoardButton"
+        android:background="@drawable/btn_keyboard"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/btn_5"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn4"
+        style="@style/KeyBoardButton"
+        android:background="@drawable/btn_keyboard"
+        app:layout_constraintEnd_toStartOf="@id/btn5"
+        app:layout_constraintBottom_toBottomOf="@id/btn5"
+        android:layout_marginEnd="20dp"
+        android:text="@string/btn_4"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn6"
+        style="@style/KeyBoardButton"
+        android:background="@drawable/btn_keyboard"
+        app:layout_constraintStart_toEndOf="@id/btn5"
+        app:layout_constraintBottom_toBottomOf="@id/btn5"
+        android:layout_marginStart="20dp"
+        android:text="@string/btn_6"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn8"
+        style="@style/KeyBoardButton"
+        android:background="@drawable/btn_keyboard"
+        app:layout_constraintTop_toBottomOf="@id/btn5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_8"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn7"
+        style="@style/KeyBoardButton"
+        android:background="@drawable/btn_keyboard"
+        app:layout_constraintEnd_toStartOf="@id/btn8"
+        app:layout_constraintBottom_toBottomOf="@id/btn8"
+        android:layout_marginEnd="20dp"
+        android:text="@string/btn_7"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn9"
+        style="@style/KeyBoardButton"
+        android:background="@drawable/btn_keyboard"
+        app:layout_constraintStart_toEndOf="@id/btn8"
+        app:layout_constraintBottom_toBottomOf="@id/btn8"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/btn_9"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn2"
+        style="@style/KeyBoardButton"
+        android:background="@drawable/btn_keyboard"
+        app:layout_constraintBottom_toTopOf="@id/btn5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20dp"
+        android:text="@string/btn_2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn1"
+        style="@style/KeyBoardButton"
+        android:background="@drawable/btn_keyboard"
+        app:layout_constraintEnd_toStartOf="@id/btn2"
+        app:layout_constraintBottom_toBottomOf="@id/btn2"
+        android:layout_marginEnd="20dp"
+        android:text="@string/btn_1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn3"
+        style="@style/KeyBoardButton"
+        android:background="@drawable/btn_keyboard"
+        app:layout_constraintStart_toEndOf="@id/btn2"
+        app:layout_constraintBottom_toBottomOf="@id/btn2"
+        android:layout_marginStart="20dp"
+        android:text="@string/btn_3"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn0"
+        style="@style/KeyBoardButton"
+        android:background="@drawable/btn_keyboard"
+        app:layout_constraintTop_toBottomOf="@id/btn8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_0"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnDelete"
+        style="@style/KeyBoardButton"
+        android:background="@drawable/btn_keyboard"
+        app:layout_constraintEnd_toStartOf="@id/btn0"
+        app:layout_constraintBottom_toBottomOf="@id/btn0"
+        android:layout_marginEnd="20dp"
+        android:text="@string/btn_delete"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnOK"
+        style="@style/KeyBoardButton"
+        android:background="@drawable/btn_keyboard"
+        app:layout_constraintStart_toEndOf="@id/btn0"
+        app:layout_constraintBottom_toBottomOf="@id/btn0"
+        android:layout_marginStart="20dp"
+        android:text="@string/btn_OK"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
