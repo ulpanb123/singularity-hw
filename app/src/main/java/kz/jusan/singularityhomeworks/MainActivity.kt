@@ -1,4 +1,4 @@
-git package kz.jusan.singularityhomeworks
+package kz.jusan.singularityhomeworks
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
