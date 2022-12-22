@@ -14,4 +14,10 @@
     <string name="btn_0">0</string>
     <string name="btn_OK">OK</string>
     <string name="correct_pin_toast">Entered PIN is correct!</string>
+    <string name="default_name">Azat Serzhanov</string>
+    <string name="share">Поделиться</string>
+    <string name="email">Отправить по почте</string>
+    <string name="call">Позвонить</string>
+    <string name="camera">Запустить камеру</string>
+    <string name="default_email">azatserzhan@gmail.com</string>
 </resources>

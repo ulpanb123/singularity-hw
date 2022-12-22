@@ -1,5 +1,6 @@
 package kz.jusan.singularityhomeworks
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -104,9 +105,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkCorrectness() {
-        if(currPin.equals(CORRECT_PIN))
+        if(currPin.equals(CORRECT_PIN)) {
             Toast.makeText(this, R.string.correct_pin_toast, Toast.LENGTH_LONG).show()
-        else
+            val intent = Intent(this, ResultActivity::class.java)
+            startActivity(intent)
+        } else
             pinEdit.setTextColor(errorColor)
     }
 }
