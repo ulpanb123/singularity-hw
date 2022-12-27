@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Singularity Homeworks</string>
+    <string name="add">Добавить</string>
+    <string name="amount">Сумма</string>
 </resources>
