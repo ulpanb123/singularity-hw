@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var currencyAdapter : CurrencyAdapter
+    private lateinit var rvCurrency : RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private fun initRecyclerView() {
         currencyAdapter = CurrencyAdapter(layoutInflater)
         val layoutManager = LinearLayoutManager(this)
-        val rvCurrency : RecyclerView = findViewById(R.id.rv_main)
+        rvCurrency =  findViewById(R.id.rv_main)
 
         rvCurrency.adapter = currencyAdapter
         rvCurrency.layoutManager = layoutManager
@@ -41,7 +44,16 @@ class MainActivity : AppCompatActivity() {
         val btnAdd : Button = findViewById(R.id.btn_add)
         btnAdd.setOnClickListener{
             val newCurrency = Currency("1 500 000", R.drawable.img_kz, "Тенге, Казахстан")
-            currencyAdapter.addItemToPosition(currency = newCurrency, pos = 0)
+            val position = 0
+            currencyAdapter.addItemToPosition(currency = newCurrency, pos = position)
+
+            val smoothScroller = object : LinearSmoothScroller(this) {
+                override fun getVerticalSnapPreference(): Int = LinearSmoothScroller.SNAP_TO_START
+
+            }
+            smoothScroller.targetPosition = position
+
+            rvCurrency.layoutManager?.startSmoothScroll(smoothScroller)
         }
     }
 
