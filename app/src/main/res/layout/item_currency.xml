@@ -30,13 +30,22 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <ImageView
-            android:id="@+id/iv_flag"
-            android:layout_width="52dp"
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="12dp"
-            tools:src="@drawable/img_kz"
-            android:background="@color/bg_flag"/>
+            app:cardCornerRadius="4dp"
+            app:cardBackgroundColor="@color/bg_flag">
+
+            <ImageView
+                android:id="@+id/iv_flag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:src="@drawable/img_kz" />
+
+        </androidx.cardview.widget.CardView>
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
