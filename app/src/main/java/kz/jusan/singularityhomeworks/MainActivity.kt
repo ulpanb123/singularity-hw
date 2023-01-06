@@ -2,6 +2,7 @@ package kz.jusan.singularityhomeworks
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         initRecyclerView()
         populateWithData()
+        initAddButton()
     }
 
     private fun initRecyclerView() {
@@ -34,4 +36,14 @@ class MainActivity : AppCompatActivity() {
 
         currencyAdapter.updateData(currencies)
     }
+
+    private fun initAddButton() {
+        val btnAdd : Button = findViewById(R.id.btn_add)
+        btnAdd.setOnClickListener{
+            val newCurrency = Currency("1 500 000", R.drawable.img_kz, "Тенге, Казахстан")
+            currencyAdapter.addItemToPosition(currency = newCurrency, pos = 0)
+        }
+    }
+
+
 }
