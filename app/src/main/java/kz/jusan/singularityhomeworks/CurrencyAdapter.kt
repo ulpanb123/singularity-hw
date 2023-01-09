@@ -2,29 +2,27 @@ package kz.jusan.singularityhomeworks
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-//private const val CURRENCY_VIEW_TYPE = 1
-//private const val ADD_VIEW_TYPE = 2
-//
-
-class CurrencyAdapter(private val layoutInflater: LayoutInflater) : RecyclerView.Adapter<CurrencyViewHolder>() {
+class CurrencyAdapter(private val layoutInflater: LayoutInflater,
+                      private val itemTouchDelegate: ItemTouchDelegate) : RecyclerView.Adapter<CurrencyViewHolder>() {
     private val currencies : MutableList<Currency> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyViewHolder {
         val layoutId = R.layout.item_currency
         val view = layoutInflater.inflate(layoutId, parent, false)
-        return CurrencyViewHolder(view)
+        val viewholder = CurrencyViewHolder(view)
+
+        viewholder.itemView.setOnTouchListener { _, motionEvent ->
+            if(motionEvent.actionMasked == MotionEvent.ACTION_DOWN) {
+                itemTouchDelegate.startDragging(viewholder)
+            }
+            return@setOnTouchListener true
+        }
+        return viewholder
     }
-
-//    override fun getItemViewType(position: Int): Int {
-//        return if(position == currencies.size)
-//            ADD_VIEW_TYPE
-//        else
-//            CURRENCY_VIEW_TYPE
-//    }
-
 
     override fun getItemCount(): Int {
         return currencies.size
@@ -44,5 +42,15 @@ class CurrencyAdapter(private val layoutInflater: LayoutInflater) : RecyclerView
 
     override fun onBindViewHolder(holder: CurrencyViewHolder, position: Int) {
         holder.bind(currency = currencies[position])
+    }
+
+    fun moveItem(from : Int, to : Int) {
+        val fromCurr = currencies[from]
+        currencies.removeAt(from)
+        if(to < from) {
+            currencies.add(to, fromCurr)
+        } else {
+            currencies.add(to-1, fromCurr)
+        }
     }
 }

@@ -4,13 +4,36 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.ItemTouchHelper.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ItemTouchDelegate {
     private lateinit var currencyAdapter : CurrencyAdapter
     private lateinit var rvCurrency : RecyclerView
+
+    private val itemTouchHelper by lazy {
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(UP or DOWN, 0) {
+
+            override fun onMove(recyclerView: RecyclerView,
+                                viewHolder: RecyclerView.ViewHolder,
+                                target: RecyclerView.ViewHolder): Boolean {
+                val adapter = recyclerView.adapter as CurrencyAdapter
+                val from = viewHolder.adapterPosition
+                val to = target.adapterPosition
+                adapter.moveItem(from, to)
+                adapter.notifyItemMoved(from, to)
+
+                return true
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                //not implemented yet
+            }
+        })
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,12 +45,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        currencyAdapter = CurrencyAdapter(layoutInflater)
+        currencyAdapter = CurrencyAdapter(layoutInflater, this)
         val layoutManager = LinearLayoutManager(this)
         rvCurrency =  findViewById(R.id.rv_main)
 
         rvCurrency.adapter = currencyAdapter
         rvCurrency.layoutManager = layoutManager
+        itemTouchHelper.attachToRecyclerView(rvCurrency)
     }
 
     private fun populateWithData() {
@@ -55,6 +79,10 @@ class MainActivity : AppCompatActivity() {
 
             rvCurrency.layoutManager?.startSmoothScroll(smoothScroller)
         }
+    }
+
+    override fun startDragging(viewholder: RecyclerView.ViewHolder) {
+        itemTouchHelper.startDrag(viewholder)
     }
 
 
