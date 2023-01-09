@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
         currencies.add(Currency("2 3450", R.drawable.img_tr, "Лира, Турция"))
         currencies.add(Currency("2 3450", R.drawable.img_eu, "Евро, EC"))
 
-        currencyAdapter.updateData(currencies)
+        currencyAdapter.updateDataWithDiffCallback(currencies)
     }
 
     private fun initAddButton() {

@@ -4,11 +4,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
 class CurrencyAdapter(private val layoutInflater: LayoutInflater,
                       private val itemTouchDelegate: ItemTouchDelegate) : RecyclerView.Adapter<CurrencyViewHolder>() {
     private val currencies : MutableList<Currency> = mutableListOf()
+    private val diffCallback = CurrencyDiffCallback()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyViewHolder {
         val layoutId = R.layout.item_currency
@@ -28,11 +30,14 @@ class CurrencyAdapter(private val layoutInflater: LayoutInflater,
         return currencies.size
     }
 
-    fun updateData(newData : List<Currency>) {
+    fun updateDataWithDiffCallback(newData : List<Currency>) {
         Log.e("CurrencyAdapter", newData.toString())
+
+        diffCallback.setItems(currencies, newData)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
         currencies.clear()
         currencies.addAll(newData)
-        notifyDataSetChanged()
+        diffResult.dispatchUpdatesTo(this)
     }
 
     fun addItemToPosition(currency: Currency, pos : Int) {
@@ -43,6 +48,8 @@ class CurrencyAdapter(private val layoutInflater: LayoutInflater,
     override fun onBindViewHolder(holder: CurrencyViewHolder, position: Int) {
         holder.bind(currency = currencies[position])
     }
+
+
 
     fun moveItem(from : Int, to : Int) {
         val fromCurr = currencies[from]
@@ -56,6 +63,5 @@ class CurrencyAdapter(private val layoutInflater: LayoutInflater,
 
     fun deleteCurrency(position : Int) {
         currencies.removeAt(position)
-
     }
 }
