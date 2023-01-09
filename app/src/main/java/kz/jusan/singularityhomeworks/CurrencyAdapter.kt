@@ -53,4 +53,9 @@ class CurrencyAdapter(private val layoutInflater: LayoutInflater,
             currencies.add(to-1, fromCurr)
         }
     }
+
+    fun deleteCurrency(position : Int) {
+        currencies.removeAt(position)
+
+    }
 }

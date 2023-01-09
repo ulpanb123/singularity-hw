@@ -15,22 +15,23 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
     private lateinit var rvCurrency : RecyclerView
 
     private val itemTouchHelper by lazy {
-        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(UP or DOWN, 0) {
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(UP or DOWN, LEFT or RIGHT) {
 
             override fun onMove(recyclerView: RecyclerView,
                                 viewHolder: RecyclerView.ViewHolder,
                                 target: RecyclerView.ViewHolder): Boolean {
-                val adapter = recyclerView.adapter as CurrencyAdapter
                 val from = viewHolder.adapterPosition
                 val to = target.adapterPosition
-                adapter.moveItem(from, to)
-                adapter.notifyItemMoved(from, to)
+                currencyAdapter.moveItem(from, to)
+                currencyAdapter.notifyItemMoved(from, to)
 
                 return true
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                //not implemented yet
+                val currPosition = viewHolder.adapterPosition
+                currencyAdapter.deleteCurrency(currPosition)
+                currencyAdapter.notifyItemRemoved(currPosition)
             }
         })
     }
@@ -83,6 +84,10 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
 
     override fun startDragging(viewholder: RecyclerView.ViewHolder) {
         itemTouchHelper.startDrag(viewholder)
+    }
+
+    override fun startSwiping(viewholder: RecyclerView.ViewHolder) {
+        itemTouchHelper.startSwipe(viewholder)
     }
 
 
