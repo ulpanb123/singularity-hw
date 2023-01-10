@@ -1,11 +1,11 @@
 package kz.jusan.singularityhomeworks
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
 const val CORRECT_PIN = "1567"
@@ -13,10 +13,10 @@ const val PIN_LENGTH = 4
 
 class MainActivity : AppCompatActivity() {
     private var currPin = ""
-    private lateinit var pinEdit : TextView
+    private lateinit var pinEdit: TextView
 
-    var errorColor : Int = Color.BLACK
-    var pinColor : Int = Color.BLACK
+    var errorColor: Int = Color.BLACK
+    var pinColor: Int = Color.BLACK
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,22 +71,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initDeleteBtn() {
-        val btnDelete : TextView = findViewById(R.id.btnDelete)
-        btnDelete.setOnClickListener{
+        val btnDelete: TextView = findViewById(R.id.btnDelete)
+        btnDelete.setOnClickListener {
             currPin = currPin.dropLast(1)
             updatePinEdit()
+        }
+
+        btnDelete.setOnLongClickListener {
+            currPin = ""
+            updatePinEdit()
+            true
         }
     }
 
     private fun initOK() {
-        val btnOK : TextView = findViewById(R.id.btnOK)
-        btnOK.setOnClickListener{
+        val btnOK: TextView = findViewById(R.id.btnOK)
+        btnOK.setOnClickListener {
             checkCorrectness()
         }
     }
 
-    private fun onNumButtonClick(view : View) {
-        if(view !is TextView)
+    private fun onNumButtonClick(view: View) {
+        if (view !is TextView)
             return
 
         val enteredNum = view.text
@@ -96,7 +102,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun updatePinEdit() {
-        if(currPin.length > PIN_LENGTH) {
+        if (currPin.length > PIN_LENGTH) {
             currPin = currPin.substring(0, PIN_LENGTH)
         }
         pinEdit.setText(currPin)
@@ -104,7 +110,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkCorrectness() {
-        if(currPin.equals(CORRECT_PIN))
+        if (currPin.equals(CORRECT_PIN))
             Toast.makeText(this, R.string.correct_pin_toast, Toast.LENGTH_LONG).show()
         else
             pinEdit.setTextColor(errorColor)
