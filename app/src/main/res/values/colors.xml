@@ -9,6 +9,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue_light">#1789DB</color>
     <color name="grey_hint">#808080</color>
+    <color name="grey_text">#CCD9E2</color>
     <color name="color_btn_bg">#F5F5F5</color>
     <color name="color_error">#F91717</color>
+    <color name="red_border">#E80A0A</color>
+    <color name="red_bg">#E17171</color>
+    <color name="green">#17DB5A</color>
+    <color name="green_80">#00FE25</color>
+
 </resources>

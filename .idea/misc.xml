@@ -4,6 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/drawable/btn_keyboard.xml" value="0.121" />
+        <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/drawable/btn_keyboard_normal.xml" value="0.12" />
+        <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/drawable/btn_keyboard_pressed.xml" value="0.12" />
+        <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/drawable/btn_ok.xml" value="0.12" />
+        <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/drawable/btn_ok_normal.xml" value="0.12" />
+        <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/drawable/btn_ok_pressed.xml" value="0.12" />
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
