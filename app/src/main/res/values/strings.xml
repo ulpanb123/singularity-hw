@@ -6,4 +6,5 @@
     <string name="alphabet">Алфавиту</string>
     <string name="by_amount">Стоимости</string>
     <string name="reset_sort">Сбросить сортировку</string>
+    <string name="delete">Delete</string>
 </resources>
