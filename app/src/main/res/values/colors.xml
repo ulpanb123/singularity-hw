@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="hint">#828282</color>
     <color name="bg_flag">#F5F5F5</color>
+    <color name="blue_accent">#1789DB</color>
 </resources>
