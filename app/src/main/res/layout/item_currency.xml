@@ -24,7 +24,7 @@
                 android:id="@+id/et_amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/ListItemTextStyle"
+                style="@style/DefaultTextStyle.ListItemTextStyle"
                 app:hintTextColor="@color/hint"
                 tools:hint="1 500 000"
                 android:hint="@string/amount"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="end"
-        style="@style/ListItemTextStyle"
+        style="@style/DefaultTextStyle.ListItemTextStyle"
         tools:text="Тенге, Казахстан" />
 
 </LinearLayout>

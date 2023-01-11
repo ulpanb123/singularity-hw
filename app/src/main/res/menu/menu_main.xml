@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_sort"
+        android:title="@string/sort_by"
+        app:showAsAction="never"
+        >
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/sort_by_alphabet"
+                    android:title="@string/alphabet"
+                    android:checked="true"/>
+                <item
+                    android:id="@+id/sort_by_amount"
+                    android:title="@string/by_amount"/>
+            </group>
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/menu_reset"
+        android:title="@string/reset_sort"/>
+
+</menu>

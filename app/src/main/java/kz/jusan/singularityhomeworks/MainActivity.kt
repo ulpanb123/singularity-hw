@@ -2,6 +2,10 @@ package kz.jusan.singularityhomeworks
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ContextMenu
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -90,6 +94,13 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
     override fun startSwiping(viewholder: RecyclerView.ViewHolder) {
         itemTouchHelper.startSwipe(viewholder)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater : MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
 
 
 }

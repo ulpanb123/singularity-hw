@@ -2,4 +2,8 @@
     <string name="app_name">Singularity Homeworks</string>
     <string name="add">Добавить</string>
     <string name="amount">Сумма</string>
+    <string name="sort_by">Сортировать по</string>
+    <string name="alphabet">Алфавиту</string>
+    <string name="by_amount">Стоимости</string>
+    <string name="reset_sort">Сбросить сортировку</string>
 </resources>

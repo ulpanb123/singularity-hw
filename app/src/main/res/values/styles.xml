@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DefaultTextStyle">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="DefaultTextStyle.ToolbarTitleTextStyle">
+        <item name="titleTextColor">@color/title_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DefaultTextStyle.ListItemTextStyle">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+</resources>
