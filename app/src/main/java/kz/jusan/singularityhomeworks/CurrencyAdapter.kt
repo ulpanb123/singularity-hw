@@ -49,8 +49,6 @@ class CurrencyAdapter(private val layoutInflater: LayoutInflater,
         holder.bind(currency = currencies[position])
     }
 
-
-
     fun moveItem(from : Int, to : Int) {
         val fromCurr = currencies[from]
         currencies.removeAt(from)
@@ -63,5 +61,19 @@ class CurrencyAdapter(private val layoutInflater: LayoutInflater,
 
     fun deleteCurrency(position : Int) {
         currencies.removeAt(position)
+    }
+
+    fun sortAlphabetically() {
+        currencies.sortBy {
+            it.info
+        }
+        notifyDataSetChanged()
+    }
+
+    fun sortByAmount() {
+        currencies.sortBy {
+            it.amount
+        }
+        notifyDataSetChanged()
     }
 }

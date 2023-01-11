@@ -10,8 +10,7 @@
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/sort_by_alphabet"
-                    android:title="@string/alphabet"
-                    android:checked="true"/>
+                    android:title="@string/alphabet" />
                 <item
                     android:id="@+id/sort_by_amount"
                     android:title="@string/by_amount"/>

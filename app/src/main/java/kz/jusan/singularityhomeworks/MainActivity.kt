@@ -2,10 +2,7 @@ package kz.jusan.singularityhomeworks
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.ContextMenu
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.View
+import android.view.*
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -17,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity(), ItemTouchDelegate {
     private lateinit var currencyAdapter : CurrencyAdapter
     private lateinit var rvCurrency : RecyclerView
+
 
     private val itemTouchHelper by lazy {
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(UP or DOWN, LEFT or RIGHT) {
@@ -100,6 +98,40 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
         inflater.inflate(R.menu.menu_main, menu)
         return true
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.sort_by_alphabet -> {
+                sortByAlphabet()
+                item.isChecked = true
+                true
+            }
+            R.id.sort_by_amount -> {
+                sortByAmount()
+                item.isChecked = true
+                true
+            }
+            R.id.menu_reset -> {
+                reserSort()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    fun sortByAlphabet() {
+        currencyAdapter.sortAlphabetically()
+    }
+
+    fun sortByAmount() {
+        currencyAdapter.sortByAmount()
+    }
+
+    fun reserSort() {
+
+    }
+
+
 
 
 
