@@ -142,9 +142,7 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
                 true
             }
             R.id.menu_delete -> {
-                currencyAdapter.deleteByLongClick(itemToDelete)
-                isDeleteClicked = false
-                invalidateOptionsMenu()
+                showDeleteDialog()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -159,10 +157,23 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
         currencyAdapter.sortByAmount()
     }
 
-    fun resetSort() {
+    private fun resetSort() {
         currencyAdapter.reset()
         populateWithData()
     }
+
+    private fun showDeleteDialog() {
+
+        DeleteDialogFragment(object : DeleteDialogFragment.OnDeleteListener {
+            override fun onDelete() {
+                currencyAdapter.deleteByLongClick(itemToDelete)
+            }
+        }).show(supportFragmentManager, null)
+        isDeleteClicked = false
+        invalidateOptionsMenu()
+    }
+
+
 
 
 }
