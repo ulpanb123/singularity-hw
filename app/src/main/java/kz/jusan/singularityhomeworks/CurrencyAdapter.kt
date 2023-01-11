@@ -76,4 +76,9 @@ class CurrencyAdapter(private val layoutInflater: LayoutInflater,
         }
         notifyDataSetChanged()
     }
+
+    fun reset() {
+        currencies.clear()
+        notifyDataSetChanged()
+    }
 }

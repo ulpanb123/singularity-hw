@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
                 true
             }
             R.id.menu_reset -> {
-                reserSort()
+                resetSort()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -127,8 +127,9 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
         currencyAdapter.sortByAmount()
     }
 
-    fun reserSort() {
-
+    fun resetSort() {
+        currencyAdapter.reset()
+        populateWithData()
     }
 
 
