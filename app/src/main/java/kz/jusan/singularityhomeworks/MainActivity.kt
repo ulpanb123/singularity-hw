@@ -90,17 +90,8 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
     private fun initAddButton() {
         val btnAdd: Button = findViewById(R.id.btn_add)
         btnAdd.setOnClickListener {
-            val newCurrency = Currency("1 500 000", R.drawable.img_kz, "Тенге, Казахстан")
-            val position = 0
-            currencyAdapter.addItemToPosition(currency = newCurrency, pos = position)
-
-            val smoothScroller = object : LinearSmoothScroller(this) {
-                override fun getVerticalSnapPreference(): Int = LinearSmoothScroller.SNAP_TO_START
-
-            }
-            smoothScroller.targetPosition = position
-
-            rvCurrency.layoutManager?.startSmoothScroll(smoothScroller)
+            val addBottomSheet = AddCurrencyBottomSheet()
+            addBottomSheet.show(supportFragmentManager, AddCurrencyBottomSheet.TAG)
         }
     }
 
