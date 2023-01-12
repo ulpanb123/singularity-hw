@@ -40,8 +40,6 @@ class CurrencyAdapter(
     }
 
     fun updateDataWithDiffCallback(newData: List<Currency>) {
-        Log.e("CurrencyAdapter", newData.toString())
-
         diffCallback.setItems(currencies, newData)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
         currencies.clear()

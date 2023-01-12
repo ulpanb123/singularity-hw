@@ -1,6 +1,8 @@
 package kz.jusan.singularityhomeworks
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -13,13 +15,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity(), ItemTouchDelegate {
+
+private const val PICK_IMAGE = 1
+
+class MainActivity : AppCompatActivity(), ItemTouchDelegate, AddCurrencyBottomSheet.BottomSheetListener {
     private lateinit var currencyAdapter: CurrencyAdapter
     private lateinit var rvCurrency: RecyclerView
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private var isDeleteClicked: Boolean = false
     private lateinit var itemToDelete: Currency
-
 
     private val itemTouchHelper by lazy {
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(UP or DOWN, LEFT or RIGHT) {
@@ -43,6 +47,7 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
             }
         })
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,7 +96,7 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
         val btnAdd: Button = findViewById(R.id.btn_add)
         btnAdd.setOnClickListener {
             val addBottomSheet = AddCurrencyBottomSheet()
-            addBottomSheet.show(supportFragmentManager, AddCurrencyBottomSheet.TAG)
+            addBottomSheet.show(supportFragmentManager, null)
         }
     }
 
@@ -164,7 +169,18 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
         invalidateOptionsMenu()
     }
 
+    override fun onAddClicked(name: String, amount: String) {
+        val newCurrency = Currency(amount = amount, flag = R.drawable.img_kz, info = name)
+        val position = 0
+        currencyAdapter.addItemToPosition(currency = newCurrency, pos = position)
 
+        val smoothScroller = object : LinearSmoothScroller(this) {
+            override fun getVerticalSnapPreference(): Int = LinearSmoothScroller.SNAP_TO_START
 
+        }
+        smoothScroller.targetPosition = position
+
+        rvCurrency.layoutManager?.startSmoothScroll(smoothScroller)
+    }
 
 }
