@@ -13,4 +13,11 @@
     <string name="currency_name">Название валюты</string>
     <string name="in_tenge">Кол. тенге в валюте</string>
     <string name="flag">Выбрать флаг</string>
+    <string name="translator">Переводчик</string>
+    <string name="favorites">Избранное</string>
+    <string name="converter">Конвертер</string>
+    <string name="search">Поиск</string>
+    <string name="profile">Профиль</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

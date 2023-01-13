@@ -1,6 +1,7 @@
 package kz.jusan.singularityhomeworks
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,7 +39,7 @@ class AddCurrencyBottomSheet : BottomSheetDialogFragment (){
         super.onViewCreated(view, savedInstanceState)
 
         addButton.setOnClickListener {
-            (activity as? BottomSheetListener)?.onAddClicked(
+            (parentFragment as? BottomSheetListener)?.onAddClicked(
                 name = currencyNameEditText.text.toString(),
                 amount = inTengeEditText.text.toString()
             )

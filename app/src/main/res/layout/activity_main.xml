@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -13,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="@color/white"
-        app:title="Convertor"
         android:padding="0dp"
         app:titleTextColor="@color/title_text"
         app:titleTextAppearance="@style/DefaultTextStyle.ToolbarTitleTextStyle"
@@ -25,23 +22,21 @@
         android:layout_height="2dp"
         android:layout_marginBottom="20dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_main"
+    <fragment
+        android:id="@+id/nav_host_fragment_activity_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:scrollbars="vertical|horizontal"/>
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/main_nav" />
 
-    <Button
-        android:id="@+id/btn_add"
-        android:layout_width="wrap_content"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add"
-        android:backgroundTint="@color/bg_flag"
-        style="@style/DefaultTextStyle.ListItemTextStyle"
-        android:drawableLeft="@drawable/ic_btn"
-        android:layout_margin="20dp"
-        >
-    </Button>
+        android:background="?android:attr/windowBackground"
+        android:layout_gravity="bottom"
+        app:menu="@menu/menu_bottom_navigation" />
 
 </LinearLayout>
