@@ -5,19 +5,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputEditText
 
-class AddCurrencyBottomSheet : BottomSheetDialogFragment (){
+class AddCurrencyBottomSheet : BottomSheetDialogFragment() {
 
-    private lateinit var addButton : TextView
-    private lateinit var currencyNameEditText : TextInputEditText
-    private lateinit var inTengeEditText : TextInputEditText
+    private lateinit var addButton: TextView
+    private lateinit var currencyNameEditText: TextInputEditText
+    private lateinit var inTengeEditText: TextInputEditText
 
     interface BottomSheetListener {
-        fun onAddClicked(name : String, amount : String)
+        fun onAddClicked(name: String, amount: String)
     }
 
     override fun onCreateView(
@@ -46,4 +45,5 @@ class AddCurrencyBottomSheet : BottomSheetDialogFragment (){
             dismiss()
         }
     }
+
 }

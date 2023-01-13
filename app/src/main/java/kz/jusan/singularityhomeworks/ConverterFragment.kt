@@ -1,11 +1,10 @@
 package kz.jusan.singularityhomeworks
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import androidx.fragment.app.Fragment
 import android.widget.Button
 import androidx.core.app.ActivityCompat.invalidateOptionsMenu
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
@@ -101,7 +100,7 @@ class ConverterFragment : Fragment(), ItemTouchDelegate, AddCurrencyBottomSheet.
         val btnAdd: Button = view.findViewById(R.id.btn_add)
         btnAdd.setOnClickListener {
             val addBottomSheet = AddCurrencyBottomSheet()
-            addBottomSheet.show(parentFragmentManager, null)
+            addBottomSheet.show(childFragmentManager, null)
         }
     }
 
