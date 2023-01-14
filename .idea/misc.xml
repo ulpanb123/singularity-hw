@@ -5,12 +5,14 @@
       <map>
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/drawable/bg_btn.xml" value="0.121" />
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/drawable/bg_edit_text.xml" value="0.12" />
+        <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/drawable/btn_keyboard.xml" value="0.1175" />
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/layout/activity_main.xml" value="0.152" />
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/layout/bottom_sheet_add.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/layout/dialog_delete.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/layout/fragment_converter.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/layout/fragment_favorites.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/layout/fragment_profile.xml" value="0.152" />
+        <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/layout/fragment_profile_main_tab.xml" value="0.176" />
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/layout/fragment_search.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/layout/fragment_translator.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/Public/SingularityHomeworks/app/src/main/res/layout/item_btn.xml" value="0.264" />
