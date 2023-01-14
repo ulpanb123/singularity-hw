@@ -20,4 +20,6 @@
     <string name="profile">Профиль</string>
     <string name="default_name">Azat Serzhanov</string>
     <string name="default_email">azatserzhan@gmail.com</string>
+    <string name="main_features">Основные</string>
+    <string name="statistics">Статистика</string>
 </resources>
