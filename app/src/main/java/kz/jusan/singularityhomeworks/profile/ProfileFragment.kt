@@ -1,15 +1,14 @@
-package kz.jusan.singularityhomeworks
+package kz.jusan.singularityhomeworks.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
+import kz.jusan.singularityhomeworks.R
 
 
 class ProfileFragment : Fragment() {

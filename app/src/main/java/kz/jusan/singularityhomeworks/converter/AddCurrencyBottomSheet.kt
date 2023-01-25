@@ -1,13 +1,13 @@
-package kz.jusan.singularityhomeworks
+package kz.jusan.singularityhomeworks.converter
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputEditText
+import kz.jusan.singularityhomeworks.R
 
 class AddCurrencyBottomSheet : BottomSheetDialogFragment() {
 

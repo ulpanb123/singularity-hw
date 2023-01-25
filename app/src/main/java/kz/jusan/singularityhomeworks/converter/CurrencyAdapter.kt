@@ -1,12 +1,13 @@
-package kz.jusan.singularityhomeworks
+package kz.jusan.singularityhomeworks.converter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import kz.jusan.singularityhomeworks.ItemTouchDelegate
+import kz.jusan.singularityhomeworks.R
 
 class CurrencyAdapter(
     private val layoutInflater: LayoutInflater,

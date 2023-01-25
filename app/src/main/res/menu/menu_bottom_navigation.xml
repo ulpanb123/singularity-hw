@@ -10,7 +10,7 @@
         android:id="@+id/navigation_favorites"
         android:enabled="true"
         android:icon="@drawable/ic_favorites"
-        android:title="@string/favorites"/>
+        android:title="@string/news"/>
 
     <item
         android:id="@+id/navigation_converter"

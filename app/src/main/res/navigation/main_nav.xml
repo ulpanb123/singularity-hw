@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/navigation_favorites"
         android:name="kz.jusan.singularityhomeworks.FavoritesFragment"
-        android:label="@string/favorites"
-        tools:layout="@layout/fragment_favorites" />
+        android:label="@string/news"
+        tools:layout="@layout/fragment_news" />
 
     <fragment
         android:id="@+id/navigation_converter"
-        android:name="kz.jusan.singularityhomeworks.ConverterFragment"
+        android:name="kz.jusan.singularityhomeworks.converter.ConverterFragment"
         android:label="Converter"
         tools:layout="@layout/fragment_converter" />
 
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="kz.jusan.singularityhomeworks.ProfileFragment"
+        android:name="kz.jusan.singularityhomeworks.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile"
         />

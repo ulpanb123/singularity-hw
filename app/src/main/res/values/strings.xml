@@ -14,7 +14,7 @@
     <string name="in_tenge">Кол. тенге в валюте</string>
     <string name="flag">Выбрать флаг</string>
     <string name="translator">Переводчик</string>
-    <string name="favorites">Избранное</string>
+    <string name="news">Qyzyqty kontent</string>
     <string name="converter">Конвертер</string>
     <string name="search">Поиск</string>
     <string name="profile">Профиль</string>
@@ -29,4 +29,5 @@
     <string name="email">Отправить по почте</string>
     <string name="call">Позвонить</string>
     <string name="camera">Запустить камеру</string>
+    <string name="search_kz">Izdey</string>
 </resources>

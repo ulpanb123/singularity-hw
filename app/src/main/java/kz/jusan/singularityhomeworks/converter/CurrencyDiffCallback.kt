@@ -1,4 +1,4 @@
-package kz.jusan.singularityhomeworks
+package kz.jusan.singularityhomeworks.converter
 
 import androidx.recyclerview.widget.DiffUtil
 

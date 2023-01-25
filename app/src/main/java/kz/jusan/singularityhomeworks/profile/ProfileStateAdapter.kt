@@ -1,4 +1,4 @@
-package kz.jusan.singularityhomeworks
+package kz.jusan.singularityhomeworks.profile
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

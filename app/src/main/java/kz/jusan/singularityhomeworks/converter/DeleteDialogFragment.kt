@@ -1,4 +1,4 @@
-package kz.jusan.singularityhomeworks
+package kz.jusan.singularityhomeworks.converter
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import kz.jusan.singularityhomeworks.R
 
 class DeleteDialogFragment(private val onDeleteListener: OnDeleteListener) : DialogFragment() {
 

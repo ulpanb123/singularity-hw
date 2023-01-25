@@ -1,4 +1,4 @@
-package kz.jusan.singularityhomeworks
+package kz.jusan.singularityhomeworks.converter
 
 import android.os.Bundle
 import android.view.*
@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
+import kz.jusan.singularityhomeworks.*
 
-class ConverterFragment : Fragment(), ItemTouchDelegate, AddCurrencyBottomSheet.BottomSheetListener {
+class ConverterFragment : Fragment(), ItemTouchDelegate,
+    AddCurrencyBottomSheet.BottomSheetListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,4 +1,4 @@
-package kz.jusan.singularityhomeworks
+package kz.jusan.singularityhomeworks.converter
 
 data class Currency(
     val amount : String,
