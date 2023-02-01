@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="kz.jusan.singularityhomeworks.FavoritesFragment"
+        android:name="kz.jusan.singularityhomeworks.news.FavoritesFragment"
         android:label="@string/news"
         tools:layout="@layout/fragment_news" />
 
