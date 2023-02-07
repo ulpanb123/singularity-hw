@@ -38,6 +38,17 @@
         app:layout_constraintTop_toBottomOf="@id/et_search"
         tools:layout_editor_absoluteX="8dp" />
 
+    <ImageView
+        android:id="@+id/btn_close"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_margin="8dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintTop_toTopOf="@id/fragment_container"
+        app:layout_constraintEnd_toEndOf="@id/fragment_container"
+        android:elevation="2dp"/>
+
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
