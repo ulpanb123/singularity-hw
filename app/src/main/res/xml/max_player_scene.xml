@@ -18,7 +18,8 @@
             android:layout_marginEnd="16dp"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@id/tv_movieDescrp"
-            app:layout_constraintTop_toBottomOf="@id/img_movie"/>
+            app:layout_constraintTop_toBottomOf="@id/img_movie"
+            android:visibility="visible"/>
 
         <Constraint
             android:id="@+id/tv_movieDescrp"
@@ -26,7 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_movieName"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_movieName"
+            android:visibility="visible"/>
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
@@ -34,8 +36,8 @@
         <Constraint
             android:id="@+id/img_movie"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
             android:id="@+id/tv_movieName"
@@ -45,7 +47,8 @@
             android:layout_marginEnd="16dp"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@id/tv_movieDescrp"
-            app:layout_constraintTop_toBottomOf="@id/img_movie"/>
+            app:layout_constraintTop_toBottomOf="@id/img_movie"
+            android:visibility="gone"/>
 
         <Constraint
             android:id="@+id/tv_movieDescrp"
@@ -53,7 +56,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_movieName"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_movieName"
+            android:visibility="gone" />
 
     </ConstraintSet>
 

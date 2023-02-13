@@ -37,7 +37,7 @@ class FavoritesFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
-            fragment = MinPlayerFragment.newInstance().also {
+            fragment = MaxPlayerFragment.newInstance().also {
                 childFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, it)
                     .commitNow()
