@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity(), ItemTouchDelegate {
     private lateinit var currencyAdapter : CurrencyAdapter
     private lateinit var rvCurrency : RecyclerView
+    private var SORTING_TYPE = 0 //0 for default, 1 for alphabet, 2 for amount
 
 
     private val itemTouchHelper by lazy {
@@ -75,6 +76,11 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
             val position = 0
             currencyAdapter.addItemToPosition(currency = newCurrency, pos = position)
 
+            when(SORTING_TYPE) {
+                1 -> sortByAlphabet()
+                2 -> sortByAmount()
+            }
+
             val smoothScroller = object : LinearSmoothScroller(this) {
                 override fun getVerticalSnapPreference(): Int = LinearSmoothScroller.SNAP_TO_START
 
@@ -102,17 +108,21 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.sort_by_alphabet -> {
+                SORTING_TYPE = 1
                 sortByAlphabet()
                 item.isChecked = true
                 true
             }
             R.id.sort_by_amount -> {
+                SORTING_TYPE = 2
                 sortByAmount()
                 item.isChecked = true
                 true
             }
             R.id.menu_reset -> {
+                SORTING_TYPE = 0
                 resetSort()
+                invalidateOptionsMenu()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -131,9 +141,5 @@ class MainActivity : AppCompatActivity(), ItemTouchDelegate {
         currencyAdapter.reset()
         populateWithData()
     }
-
-
-
-
 
 }
