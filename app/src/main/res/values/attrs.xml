@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PinCustomView">
+        <attr name="radius" format="dimension"/>
+        <attr name="hasBorder" format="boolean"/>
+        <attr name="borderColor" format="color"/>
+        <attr name="borderSize" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="PinCompoundView">
+        <attr name="pinEntry1" format="string"/>
+        <attr name="pinEntry2" format="string"/>
+        <attr name="pinEntry3" format="string"/>
+        <attr name="pinEntry4" format="string"/>
+    </declare-styleable>
+</resources>

@@ -23,4 +23,13 @@
     <style name="KeyBoardButton.okButton">
         <item name="android:textColor">@color/blue_light</item>
     </style>
+
+    <style name="PinEditCompoundView">
+        <item name="android:textAlignment">center</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blue_light</item>
+    </style>
+
 </resources>

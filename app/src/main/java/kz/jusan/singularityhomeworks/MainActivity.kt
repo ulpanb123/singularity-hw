@@ -7,16 +7,19 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.get
 
 const val CORRECT_PIN = "1567"
 const val PIN_LENGTH = 4
 
 class MainActivity : AppCompatActivity() {
     private var currPin = ""
-    private lateinit var pinEdit: TextView
+    private lateinit var pinEdit: PinCompoundView
 
     var errorColor: Int = Color.BLACK
     var pinColor: Int = Color.BLACK
+
+    private var currEnteredNum = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +38,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initPinEdit() {
-        pinEdit = findViewById(R.id.pinCodeEdit)
+        pinEdit = findViewById(R.id.pin_compound)
+
     }
 
     private fun initNums() {
@@ -74,12 +78,14 @@ class MainActivity : AppCompatActivity() {
         val btnDelete: TextView = findViewById(R.id.btnDelete)
         btnDelete.setOnClickListener {
             currPin = currPin.dropLast(1)
-            updatePinEdit()
+            currEnteredNum--
+            updatePinEdit("")
         }
 
         btnDelete.setOnLongClickListener {
             currPin = ""
-            updatePinEdit()
+            clearAllEntries()
+            currEnteredNum = 0
             true
         }
     }
@@ -97,22 +103,60 @@ class MainActivity : AppCompatActivity() {
 
         val enteredNum = view.text
         currPin += enteredNum
-        updatePinEdit()
+        currEnteredNum++
+
+        updatePinEdit(enteredNum.toString())
     }
 
 
-    private fun updatePinEdit() {
+    private fun updatePinEdit(enteredNum : String) {
         if (currPin.length > PIN_LENGTH) {
             currPin = currPin.substring(0, PIN_LENGTH)
         }
-        pinEdit.setText(currPin)
-        pinEdit.setTextColor(pinColor)
+
+        when(currEnteredNum) {
+            1 -> {
+                pinEdit.setEntryPin1(enteredNum)
+                pinEdit.entryBtn1.setBorderVisible(pinColor)
+            }
+            2 -> {
+                pinEdit.setEntryPin2(enteredNum)
+                pinEdit.entryBtn2.setBorderVisible(pinColor)
+            }
+            3 -> {
+                pinEdit.setEntryPin3(enteredNum)
+                pinEdit.entryBtn3.setBorderVisible(pinColor)
+            }
+            4 -> {
+                pinEdit.setEntryPin4(enteredNum)
+                pinEdit.entryBtn4.setBorderVisible(pinColor)
+            }
+        }
+
+    }
+
+    private fun clearAllEntries() {
+        with(pinEdit) {
+            entryBtn1
+            entryBtn2
+            entryBtn3
+            entryBtn4
+        }.setBorderInvisible()
+
+        with(pinEdit) {
+            entryBtn1
+            entryBtn2
+            entryBtn3
+            entryBtn4
+        }.text = ""
+
+
     }
 
     private fun checkCorrectness() {
         if (currPin.equals(CORRECT_PIN))
             Toast.makeText(this, R.string.correct_pin_toast, Toast.LENGTH_LONG).show()
-        else
-            pinEdit.setTextColor(errorColor)
+//        else
+//            pinEdit.setTextColor(errorColor)
     }
 }

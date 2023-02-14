@@ -7,17 +7,16 @@
     tools:context=".MainActivity"
     >
 
-    <TextView
-        android:id="@+id/pinCodeEdit"
+    <kz.jusan.singularityhomeworks.PinCompoundView
+        android:id="@+id/pin_compound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btn2"
-        android:layout_marginBottom="30dp"
-        style="@style/PinCodeEdit"
-        android:textAlignment="center"
-        android:maxLength="4"/>
+        android:layout_marginBottom="24dp" />
+
+
 
     <TextView
         android:layout_width="wrap_content"
