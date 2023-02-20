@@ -2,10 +2,9 @@ package kz.jusan.singularityhomeworks
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.graphics.Color
+import android.graphics.Canvas
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.graphics.toColor
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
@@ -13,11 +12,10 @@ import com.google.android.material.shape.ShapeAppearanceModel
 private const val COLOR_NAME = -1
 
 class PinCustomView @JvmOverloads constructor(
-    context : Context,
-    attrs : AttributeSet? = null,
+    context: Context,
+    attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : AppCompatButton(context, attrs, defStyleAttr)
-{
+) : AppCompatButton(context, attrs, defStyleAttr) {
     private var radius = 0f
     var hasBorder = false
     private var borderColor = COLOR_NAME
@@ -29,7 +27,7 @@ class PinCustomView @JvmOverloads constructor(
             R.styleable.PinCustomView,
             0, 0
         ).apply {
-            try{
+            try {
                 radius = resources.getDimension(R.dimen.dimen_pin_radius)
                 hasBorder = getBoolean(R.styleable.PinCustomView_hasBorder, false)
                 borderColor = getColor(R.styleable.PinCustomView_borderColor, COLOR_NAME)
@@ -39,8 +37,17 @@ class PinCustomView @JvmOverloads constructor(
             }
         }
 
-        val shapeAppearanceModel : ShapeAppearanceModel = ShapeAppearanceModel().toBuilder().apply {
-            if(radius > 0) {
+        setBackground()
+    }
+
+    override fun onDraw(canvas: Canvas?) {
+        super.onDraw(canvas)
+        setBackground()
+    }
+
+    private fun setBackground() {
+        val shapeAppearanceModel: ShapeAppearanceModel = ShapeAppearanceModel().toBuilder().apply {
+            if (radius > 0) {
                 setAllCorners(
                     CornerFamily.ROUNDED,
                     radius
@@ -50,7 +57,7 @@ class PinCustomView @JvmOverloads constructor(
 
         val shapeDrawable = MaterialShapeDrawable(shapeAppearanceModel).apply {
 
-            if(hasBorder && borderColor != COLOR_NAME) {
+            if (hasBorder && borderColor != COLOR_NAME) {
                 strokeWidth = borderSize
                 strokeColor = ColorStateList.valueOf(borderColor)
             }
@@ -59,12 +66,9 @@ class PinCustomView @JvmOverloads constructor(
         }
 
         background = shapeDrawable
-
-
-
     }
 
-    fun setBorderVisible(color : Int) {
+    fun setBorderVisible(color: Int) {
         hasBorder = true
         borderColor = color
         invalidate()        //doesn't work:(
@@ -74,8 +78,5 @@ class PinCustomView @JvmOverloads constructor(
         hasBorder = false
         invalidate()
     }
-
-
-
 
 }
