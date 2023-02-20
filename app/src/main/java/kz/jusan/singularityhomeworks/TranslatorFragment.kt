@@ -15,6 +15,7 @@ import kotlinx.coroutines.withContext
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private const val API_KEY = "uLBF5RFMHhabvS7WaKbwzcgCpT3hdVso"
 
 /**
  * A simple [Fragment] subclass.
@@ -49,11 +50,13 @@ class TranslatorFragment : Fragment() {
         tvMain = view.findViewById(R.id.tv_main)
 
         MainScope().launch {
-            val list : List<User>
+            val result : String
             withContext(Dispatchers.Default) {
-                list = RetrofitBuilder.apiService.getUsers()
+                RetrofitBuilder.apiService.convertCurrency(API_KEY, "KZT", "USD", 150000.0).body().apply {
+                    result = this?.result.toString()
+                }
             }
-            tvMain.text = list.toString()
+            tvMain.text = result
         }
     }
 

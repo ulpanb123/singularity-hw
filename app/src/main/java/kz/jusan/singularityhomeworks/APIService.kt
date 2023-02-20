@@ -1,9 +1,16 @@
 package kz.jusan.singularityhomeworks
 
+import kz.jusan.singularityhomeworks.model.ApiResponse
+import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface APIService {
-    @GET("users")
-    suspend fun getUsers(): List<User>
+    @GET("convert")
+    suspend fun convertCurrency(
+        @Query("apikey") access_key: String,
+        @Query("from") from: String,
+        @Query("to") to: String,
+        @Query("amount") amount: Double
+    ) : Response<ApiResponse>
 }
