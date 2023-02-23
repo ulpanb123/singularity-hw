@@ -36,6 +36,7 @@ class CurrencyAdapter(
         return viewholder
     }
 
+
     override fun getItemCount(): Int {
         return currencies.size
     }

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/item_currency"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingHorizontal="20dp"
@@ -28,6 +29,8 @@
                 style="@style/DefaultTextStyle.ListItemTextStyle"
                 app:hintTextColor="@color/hint"
                 tools:hint="1 500 000"
+                android:clickable="false"
+                android:focusable="false"
                 android:hint="@string/amount"
                 />
 
