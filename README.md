@@ -9,5 +9,7 @@ A multi-functional app that uses different development tools and libraries. Writ
 
 ## Stack
 **Language:** Kotlin
+
 **Libraries:** Retrofit, okhttp, Android Jetpack Components, Koin (for DI) 
+
 **Architecture Pattern:** MVVM 
