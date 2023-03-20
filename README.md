@@ -8,8 +8,8 @@ A multi-functional app that uses different development tools and libraries. Writ
 - Currency Converter
 
 ## Stack
-**Language:** Kotlin
+- **Language:** Kotlin
 
-**Libraries:** Retrofit, okhttp, Android Jetpack Components, Koin (for DI) 
+- **Libraries:** Retrofit, okhttp, Android Jetpack Components, Koin (for DI) 
 
-**Architecture Pattern:** MVVM 
+- **Architecture Pattern:** MVVM 
