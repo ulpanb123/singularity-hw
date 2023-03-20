@@ -1,4 +1,4 @@
-# singularity-hw
+# Singularity Super App
 
 A multi-functional app that uses different development tools and libraries. Written in purpose of practise of learnt topics. 
 
