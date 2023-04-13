@@ -6,6 +6,8 @@ import android.widget.Button
 import androidx.core.app.ActivityCompat.invalidateOptionsMenu
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
@@ -170,8 +172,7 @@ class ConverterFragment : Fragment(), ItemTouchDelegate,
     private fun initAddButton(view: View) {
         val btnAdd: Button = view.findViewById(R.id.btn_add)
         btnAdd.setOnClickListener {
-            val addBottomSheet = AddCurrencyBottomSheet()
-            addBottomSheet.show(childFragmentManager, null)
+            findNavController().navigate(ConverterFragmentDirections.actionNavigationConverterToAddCurrencyBottomSheet())
         }
     }
 
@@ -253,13 +254,16 @@ class ConverterFragment : Fragment(), ItemTouchDelegate,
         invalidateOptionsMenu(activity)
     }
 
-    override fun onAddClicked(name: String, amount: String) {
+    override fun onAddClicked() {
+        val args : ConverterFragmentArgs by navArgs()
+        val name = args.currencyName
+        val amount = args.amount
         val newCurrency = Currency(amount = amount, flag = R.drawable.img_kz, info = name)
         val position = 0
         currencyAdapter.addItemToPosition(currency = newCurrency, pos = position)
 
         val smoothScroller = object : LinearSmoothScroller(requireContext()) {
-            override fun getVerticalSnapPreference(): Int = LinearSmoothScroller.SNAP_TO_START
+            override fun getVerticalSnapPreference(): Int = SNAP_TO_START
 
         }
         smoothScroller.targetPosition = position

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputEditText
 import kz.jusan.singularityhomeworks.R
@@ -16,7 +17,7 @@ class AddCurrencyBottomSheet : BottomSheetDialogFragment() {
     private lateinit var inTengeEditText: TextInputEditText
 
     interface BottomSheetListener {
-        fun onAddClicked(name: String, amount: String)
+        fun onAddClicked()
     }
 
     override fun onCreateView(
@@ -38,11 +39,11 @@ class AddCurrencyBottomSheet : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         addButton.setOnClickListener {
-            (parentFragment as? BottomSheetListener)?.onAddClicked(
-                name = currencyNameEditText.text.toString(),
+            (parentFragment as? BottomSheetListener)?.onAddClicked()
+            findNavController().navigate(AddCurrencyBottomSheetDirections.actionAddCurrencyBottomSheetToNavigationConverter(
+                currencyName = currencyNameEditText.text.toString(),
                 amount = inTengeEditText.text.toString()
-            )
-            dismiss()
+            ))
         }
     }
 

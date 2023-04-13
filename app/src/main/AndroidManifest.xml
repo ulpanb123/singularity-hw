@@ -23,6 +23,30 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <intent-filter android:label="@string/filter_view_http_singularity">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http"
+                    android:host="www.example.com"
+                    android:pathPrefix="/singularity" />
+
+            </intent-filter>
+
+            <intent-filter android:label="@string/filter_view_example_singularity">
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="example"
+                    android:host="singularity" />
+
+            </intent-filter>
         </activity>
     </application>
 

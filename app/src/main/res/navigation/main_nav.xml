@@ -9,33 +9,60 @@
         android:id="@+id/navigation_translator"
         android:name="kz.jusan.singularityhomeworks.TranslatorFragment"
         android:label="@string/translator"
-        tools:layout="@layout/fragment_translator" />
+        tools:layout="@layout/fragment_translator">
+        <deepLink app:uri="@string/deeplink_uri_translator"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_favorites"
         android:name="kz.jusan.singularityhomeworks.news.FavoritesFragment"
         android:label="@string/news"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news">
+        <deepLink app:uri="@string/deeplink_uri_favorites"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_converter"
         android:name="kz.jusan.singularityhomeworks.converter.ConverterFragment"
         android:label="Converter"
-        tools:layout="@layout/fragment_converter" />
+        tools:layout="@layout/fragment_converter">
+        <deepLink app:uri="@string/deeplink_uri_converter"/>
+        <action
+            android:id="@+id/action_navigation_converter_to_addCurrencyBottomSheet"
+            app:destination="@id/addCurrencyBottomSheet"
+            app:popUpTo="@id/navigation_converter" />
+        <argument
+            android:name="currencyName"
+            app:argType="string"
+            android:defaultValue='KZ' />
+        <argument
+            android:name="amount"
+            app:argType="string"
+            android:defaultValue="0" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_search"
         android:name="kz.jusan.singularityhomeworks.SearchFragment"
         android:label="@string/search"
-        tools:layout="@layout/fragment_search"
-        />
+        tools:layout="@layout/fragment_search">
+        <deepLink app:uri="@string/deeplink_uri_search"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="kz.jusan.singularityhomeworks.profile.ProfileFragment"
         android:label="@string/profile"
-        tools:layout="@layout/fragment_profile"
-        />
-
+        tools:layout="@layout/fragment_profile">
+        <deepLink app:uri="@string/deeplink_uri_profile"/>
+    </fragment>
+    <dialog
+        android:id="@+id/addCurrencyBottomSheet"
+        android:name="kz.jusan.singularityhomeworks.converter.AddCurrencyBottomSheet"
+        android:label="AddCurrencyBottomSheet" >
+        <action
+            android:id="@+id/action_addCurrencyBottomSheet_to_navigation_converter"
+            app:destination="@id/navigation_converter" />
+    </dialog>
 
 </navigation>

@@ -31,5 +31,12 @@
     <string name="camera">Запустить камеру</string>
     <string name="search_kz">Izdey</string>
     <string name="movie1_name">Komedıia Ákіm 2020</string>
-    <string name="movie1_descrp">Молодого мажора по имени Азамат, привыкшего к комфортной городской жизни, по стечению непредвиденных обстоятельств, отправляют работать Акимом в отдаленный посёлок - Таза Булак. ... С первого дня пребывания в ауле, новоиспечённый Аким мечтает о том, чтобы вернуться в город.</string>
+    <string name="movie1_descrp">Молодого мажора по имени Азамат, привыкшего к комфортной городской жизни, по стечению непредвиденных обстоятельств, отправляют работать Акимом в отдаленный посёлок - Таза Булак. … С первого дня пребывания в ауле, новоиспечённый Аким мечтает о том, чтобы вернуться в город.</string>
+    <string name="filter_view_example_singularity">example://singularity</string>
+    <string name="filter_view_http_singularity">http://www.example.com/singularity</string>
+    <string name="deeplink_uri_translator">www.example.com/singularity/translator</string>
+    <string name="deeplink_uri_favorites">www.example.com/singularity/favorites</string>
+    <string name="deeplink_uri_converter">www.example.com/singularity/converter</string>
+    <string name="deeplink_uri_search">www.example.com/singularity/search</string>
+    <string name="deeplink_uri_profile">www.example.com/singularity/profile</string>
 </resources>
