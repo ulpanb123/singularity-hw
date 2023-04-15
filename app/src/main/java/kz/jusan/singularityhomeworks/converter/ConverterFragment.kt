@@ -3,6 +3,7 @@ package kz.jusan.singularityhomeworks.converter
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
+import android.widget.ProgressBar
 import androidx.core.app.ActivityCompat.invalidateOptionsMenu
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
@@ -13,10 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import kz.jusan.singularityhomeworks.ItemTouchDelegate
 import kz.jusan.singularityhomeworks.R
 import kz.jusan.singularityhomeworks.RetrofitBuilder
@@ -29,6 +27,7 @@ class ConverterFragment : Fragment(), ItemTouchDelegate,
     private lateinit var currencyAdapter: CurrencyAdapter
     private lateinit var rvCurrency: RecyclerView
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
+    private lateinit var pbConverter : ProgressBar
     private var isDeleteClicked: Boolean = false
     private lateinit var itemToDelete: Currency
     private var currentProp: MutableList<Double> = mutableListOf()
@@ -76,16 +75,31 @@ class ConverterFragment : Fragment(), ItemTouchDelegate,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initViews(view)
         initRecyclerView(view)
         makeApiRequest()
         populateWithData()
-        initAddButton(view)
-        initToolbar(view)
-        initPinnedEt(view)
     }
 
-    private fun initToolbar(view: View) {
+    private fun initViews(view : View) {
+        //toolbar
         toolbar = requireActivity().findViewById(R.id.toolbar)
+
+        //add button
+        val btnAdd: Button = view.findViewById(R.id.btn_add)
+        btnAdd.setOnClickListener {
+            findNavController().navigate(ConverterFragmentDirections.actionNavigationConverterToAddCurrencyBottomSheet())
+        }
+
+        //pinned editText
+        val pinnedEt: TextInputEditText = view.findViewById(R.id.et_amount)
+        pinnedEt.doOnTextChanged { text, start, before, count ->
+            if (text.isNullOrEmpty()) {
+                populateWithData()
+                return@doOnTextChanged
+            }
+            updateCurrencies(amount = text.toString().toDouble())
+        }
     }
 
     private fun initRecyclerView(view: View) {
@@ -104,6 +118,9 @@ class ConverterFragment : Fragment(), ItemTouchDelegate,
         rvCurrency.adapter = currencyAdapter
         rvCurrency.layoutManager = layoutManager
         itemTouchHelper.attachToRecyclerView(rvCurrency)
+
+        //progressBar
+        pbConverter = view.findViewById(R.id.pb_converter)
     }
 
     private fun populateWithData() {
@@ -149,43 +166,38 @@ class ConverterFragment : Fragment(), ItemTouchDelegate,
     private fun makeApiRequest() {
         currentProp.add(1.0)
 
-        MainScope().launch {
-            withContext(Dispatchers.Default) {
-                RetrofitBuilder.apiService.convertCurrency(API_KEY, "KZT", "USD", 1.0).body()
-                    .apply {
-                        currentProp.add(1, this!!.result)
-                    }
-                RetrofitBuilder.apiService.convertCurrency(API_KEY, "KZT", "TRY", 1.0).body()
-                    .apply {
-                        currentProp.add(2, this!!.result)
-                    }
+        showPb()
+        GlobalScope.launch(Dispatchers.IO) {
+            RetrofitBuilder.apiService.convertCurrency(API_KEY, "KZT", "USD", 1.0).body()
+                .apply {
+                    currentProp.add(1, this!!.result)
+                }
+            RetrofitBuilder.apiService.convertCurrency(API_KEY, "KZT", "TRY", 1.0).body()
+                .apply {
+                    currentProp.add(2, this!!.result)
+                }
 
-                RetrofitBuilder.apiService.convertCurrency(API_KEY, "KZT", "EUR", 1.0).body()
-                    .apply {
-                        currentProp.add(3, this!!.result)
-                    }
-                isDataAvailable = true
+            RetrofitBuilder.apiService.convertCurrency(API_KEY, "KZT", "EUR", 1.0).body()
+                .apply {
+                    currentProp.add(3, this!!.result)
+                }
+            isDataAvailable = true
+
+            withContext(Dispatchers.Main) {
+                hidePb()
             }
         }
     }
 
-    private fun initAddButton(view: View) {
-        val btnAdd: Button = view.findViewById(R.id.btn_add)
-        btnAdd.setOnClickListener {
-            findNavController().navigate(ConverterFragmentDirections.actionNavigationConverterToAddCurrencyBottomSheet())
-        }
+    private fun showPb() {
+        pbConverter.visibility = View.VISIBLE
     }
 
-    private fun initPinnedEt(view: View) {
-        val pinnedEt: TextInputEditText = view.findViewById(R.id.et_amount)
-        pinnedEt.doOnTextChanged { text, start, before, count ->
-            if (text.isNullOrEmpty()) {
-                populateWithData()
-                return@doOnTextChanged
-            }
-            updateCurrencies(amount = text.toString().toDouble())
-        }
+    private fun hidePb() {
+        pbConverter.visibility = View.GONE
+        rvCurrency.visibility = View.VISIBLE
     }
+
 
     override fun startDragging(viewholder: RecyclerView.ViewHolder) {
         itemTouchHelper.startDrag(viewholder)
